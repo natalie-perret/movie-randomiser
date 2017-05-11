@@ -15,7 +15,7 @@ exports.seed = function (knex, Promise) {
         knex('genres').insert({id: 11, name: "Biography"}),
         knex('genres').insert({id: 12, name: "History"}),
         knex('genres').insert({id: 13, name: "Animation"}),
-        knex('genres').insert({id: 13, name: "Romance"})
+        knex('genres').insert({id: 14, name: "Romance"})
       ]);
     });
 };
