@@ -8,12 +8,16 @@ router.get('/', function (req, res) {
 })
 
 router.get('/addmovie', function (req, res) {
-  res.render('addmovie')
+  db.allGenres(req.params.id, req.app.get('connection'))
+    .then((genres) => res.render('addmovie', genres))
 })
 
 router.get('/movie/:id', function (req, res) {
   db.getMovie(req.params.id, req.app.get('connection'))
-    .then((result) => res.render('movie', result))
-})
+    .then((movie) => {
+      db.getMovieGenres(req.params.id, req.app.get('connection'))
+      .then((genres) => res.render('movie', {movie, genres}))
+    })
+  })
 
 module.exports = router
