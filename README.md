@@ -1,24 +1,20 @@
-# Boilerplate: Knex.js
+Movie-randomiser - an app with a big button that lets you randomly choose a movie to watch (by genre if you want).
 
-Phase 1 boilerplate project with:
+User stories
+* I want to watch a movie with my class but we can't decide on what movie to watch.
 
- - Express
- - Knex
- - SQLite3
- - Express Handlebars
- - body-parser
- - AVA
- - Node Inspector
- - nodemon
+MVP
+* An app with a big button to click on which randomly selects a movie to watch (by genre if desired).
+* Have a drop down menu that allows user to select either 'All' genres or by a specific genre.
+* Have a database for movies with a title, year and blurb column.
+* Have a database with a bunch of genre options.
+* Have a database which joins movies with their genres (as some movies may have more than one genre).
 
+Stretch
+* A user can add more movies to the database through a form
 
-## Install
-
-```
-npm install
-npm run knex migrate:latest
-npm run knex seed:run
-npm run dev
-```
-
-Be sure to check out the other npm scripts too.
+Learning Objectives
+* Simon:
+* Kelly:
+* Hannah:
+* Natalie:
