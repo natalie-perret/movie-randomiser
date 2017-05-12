@@ -3,13 +3,16 @@
 
 
 <form class="randomise" action="/random" method="post">
-  <select id="genreList">
+
+  <select id="genreList" name='genre'>
     <option value="All genres" selected>All genres</option>
     {{#each genres}}
     <option value="{{name}}">{{name}}</option>
     {{/each}}
   </select>
+
   <input type="submit" value="Randomise"/>
+
 </form>
 
 

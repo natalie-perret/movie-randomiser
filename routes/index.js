@@ -23,6 +23,12 @@ router.get('/movie/:id', function (req, res) {
       })
 
     })
-  })
+})
+
+
+router.post('/random', function (req, res){
+  var genre = req.body.genre
+  console.log(genre);
+})
 
 module.exports = router
