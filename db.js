@@ -6,9 +6,19 @@ function allGenres (connection) {
   .select('name')
 }
 
+function allMovies (connection) {
+  return connection('movies')
+}
+
 function getMovie (id, connection) {
   return connection('movies').select()
     .where('id', id)
+    .first()
+}
+
+function genreId (name, connection) {
+  return connection('genres').select('id')
+    .where('name', name)
     .first()
 }
 
@@ -18,8 +28,17 @@ function getMovieGenres (movieId, connection) {
     .where('movie_id', movieId)
 }
 
+function getGenreMovies (genreId, connection) {
+  return connection('movies')
+    .join('types', 'movie_id', '=', 'movies.id')
+    .where('genre_id', genreId)
+}
+
 module.exports = {
   allGenres: allGenres,
+  allMovies: allMovies,
   getMovie: getMovie,
-  getMovieGenres: getMovieGenres
+  genreId: genreId,
+  getMovieGenres: getMovieGenres,
+  getGenreMovies: getGenreMovies
 }

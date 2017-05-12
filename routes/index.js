@@ -28,6 +28,17 @@ router.get('/movie/:id', function (req, res) {
 
 router.post('/random', function (req, res){
   var genre = req.body.genre
+  db.genreId(genre, req.app.get('connection'))
+    .then((id) => {
+    console.log(id)
+     db.allMovies(req.app.get('connection'))
+      .then((movies) => {
+        if(genre != 'All genres'){
+
+        }
+      })
+    })
+
   console.log(genre);
 })
 
