@@ -34,11 +34,16 @@ function getGenreMovies (genreId, connection) {
     .where('genre_id', genreId)
 }
 
+function randomise(movies){
+  
+}
+
 module.exports = {
   allGenres: allGenres,
   allMovies: allMovies,
   getMovie: getMovie,
   genreId: genreId,
   getMovieGenres: getMovieGenres,
-  getGenreMovies: getGenreMovies
+  getGenreMovies: getGenreMovies,
+  randomise: randomise
 }
