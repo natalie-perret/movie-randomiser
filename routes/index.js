@@ -18,7 +18,7 @@ router.post('/addmovie', (req, res) => {
   if (req.body.random) {
     db.addRandom()
     res.render("addmovie")
-    
+
   } else if (req.body.search) {
     db.searchMovies(req.body.search)
       .then((page) => {
@@ -42,6 +42,7 @@ router.get('/movie/:id', function (req, res) {
     .then((movie) => {
       db.getMovieGenres(req.params.id, req.app.get('connection'))
       .then((genres) => {
+        console.log(movie)
         res.render('movie', {movie, genres})
       })
 
