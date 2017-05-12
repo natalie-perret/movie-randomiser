@@ -1,4 +1,4 @@
-font-family: 'Ubuntu', sans-serif;
+font-family: 'Raleway', sans-serif;
 
 
 * {
@@ -27,7 +27,7 @@ font-family: 'Ubuntu', sans-serif;
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Raleway', sans-serif;
     background-image: url("https://i.ytimg.com/vi/JvIONJQ54Mw/maxresdefault.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -41,4 +41,12 @@ body {
   padding: 25px;
   margin: 25px;
   text-align: center;
+}
+
+h1 {
+  font-size: 12rem
+}
+
+#genreList {
+  color: black
 }
