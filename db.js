@@ -1,22 +1,21 @@
 
 var movieDb = require('moviedb')('5d6500fd40637e64552fe0ce86c7e9ca')
 
-// function allGenres (connection) {
-//   return connection('genres').select(name)
-// }
-//
-// function getMovie (id, connection) {
-//   return connection('movies').select()
-//     .where('id', id)
-//     .first()
-// }
-//
-// function getMovieGenres (movieId, connection) {
-//   return connection('genres')
-//   .join()
-// }
+function allGenres (connection) {
+  return connection('genres').select(name)
+}
 
-// Api related stuff ->
+function getMovie (id, connection) {
+  return connection('movies').select()
+    .where('id', id)
+    .first()
+}
+
+function getMovieGenres (movieId, connection) {
+  return connection('genres')
+  .join()
+}
+
 
 function addRandom() {
   getLatestMovie()
@@ -27,6 +26,10 @@ function addRandom() {
 ${result.overview || "No description )-:"}`)
     })
     .catch(console.log)
+
+function allGenres (connection) 
+  return connection('genres').select('name')
+
 }
 
 function getLatestMovie() {
@@ -40,6 +43,7 @@ function getLatestMovie() {
   })
 }
 
+
 function findById(result) {
   let randId = Math.floor(Math.random() * result.id) + 1
   return new Promise((resolve, reject) => {
@@ -51,6 +55,11 @@ function findById(result) {
       resolve(res)
     })
   })
+
+function getMovieGenres (movieId, connection) {
+  return connection('genres')
+    .join('types', 'genre_id', '=', 'genres.id')
+    .where('movie_id', movieId)
 }
 
 function searchMovies(keyword) {
@@ -82,8 +91,8 @@ function addTitle(movie_id) {
 module.exports = {
   searchMovies,
   addRandom,
-  addTitle
-  // allGenres: allGenres,
-  // getMovie: getMovie,
-  // getMovieGenres: getMovieGenres
+  addTitle,
+  allGenres: allGenres,
+  getMovie: getMovie,
+  getMovieGenres: getMovieGenres
 }

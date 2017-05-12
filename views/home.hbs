@@ -1,6 +1,24 @@
+<div class="bigbox">
+  <div class="row">
+    <div class="three columns">
+      <h5>
+        <ol>
+          <li>Choose a genre</li>
+          <li>Randomise!</li>
+        </ol>
+      </h5>
+    </div>
 
-<div class="homecontainer">
-
-
-
+    <div class="nine columms">
+      <form class="randomise" action="/random" method="post">
+        <select id="genreList" name="genre">
+          <option value="All genres" selected>All genres</option>
+            {{#each genres}}
+          <option value="{{name}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <input type="submit" value="Randomise"/>
+      </form>
+    </div>
+  </div>
 </div>
