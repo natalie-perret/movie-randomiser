@@ -26,6 +26,7 @@ function addRandom() {
 ${result.overview || "No description )-:"}`)
     })
     .catch(console.log)
+  }
 
 function allGenres (connection) {
   return connection('genres').select('name')
@@ -55,6 +56,7 @@ function findById(result) {
       resolve(res)
     })
   })
+}
 
 function getMovieGenres (movieId, connection) {
   return connection('genres')
