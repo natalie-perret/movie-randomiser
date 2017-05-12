@@ -1,4 +1,4 @@
-font-family: 'Ubuntu', sans-serif;
+font-family: 'Raleway', sans-serif;
 
 
 * {
@@ -26,8 +26,8 @@ font-family: 'Ubuntu', sans-serif;
 
 }
 
-body {
-  font-family: 'Ubuntu', sans-serif;
+body{
+  font-family: 'Raleway', sans-serif;
     background-image: url("https://i.ytimg.com/vi/JvIONJQ54Mw/maxresdefault.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -41,4 +41,36 @@ body {
   padding: 25px;
   margin: 25px;
   text-align: center;
+}
+
+h1 {
+  font-size: 12rem
+}
+
+#genreList {
+  color: black
+}
+
+input[type=submit] {
+  margin: 20px;
+  color: white;
+  background-color: blue;
+  border: 2px;
+  cursor: pointer;
+}
+
+input[type=text] {
+  margin: 20px;
+  color: black;
+  background-color: white;
+  border: 2px;
+  cursor: pointer;
+}
+
+button[type=submit] {
+  margin: 20px;
+  color: white;
+  background-color: blue;
+  border: 2px;
+  cursor: pointer;
 }
