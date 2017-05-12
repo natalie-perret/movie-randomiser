@@ -1,16 +1,18 @@
-<div class="bigbox">
-<div class="row">
-<div class="six columns">
-  <h5>Submit a film</h5>
-</div>
 
-  <form class="addMovie" action="/addmovie" method="post">
-    <input type="search" id="value" name="search">
-  </form>
+<form class="addMovie" action="/addmovie" method="post">
+  <label>Search for a movie: <input type="text" name="search"></label>
+  <button type="submit">Add</button>
+</form>
 
+<form class="addMovie" action="/addmovie" method="post">
+  <input type="hidden" name="random" value="true">
+  <button type="submit">Add a random movie</button>
+</form>
 
-
-
-</div>
-
-</div>
+<ul>
+{{#each results}}
+<form action="/addmovie" method="post">
+<li><b>{{this.original_title}}</b> <b>{{this.release_date}}</b> <button type="submit" name="addtitle" value="{{this.id}}">Add</button>
+</form>
+{{/each}}
+</ul>
