@@ -1,21 +1,60 @@
-font-family: 'Ubuntu', sans-serif;
+font-family: 'Raleway', sans-serif;
 
 
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -box-sizing: border-box;
+
+
+}
+
+.headerbox{
+  width: 85%;
+  border-radius: 25px;
+  border: 25px solid white;
+  padding: 25px;
+  margin: 25px;
+  text-align: center;
 }
 
 .header {
   font-family: 'Ubuntu', sans-serif;
+  padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px
 
 }
-.allbody{
-  font-family: 'Ubuntu', sans-serif;
 
-
-    background-image: url(https://i.ytimg.com/vi/JvIONJQ54Mw/maxresdefault.jpg);
+body {
+  font-family: 'Raleway', sans-serif;
+    background-image: url("https://i.ytimg.com/vi/JvIONJQ54Mw/maxresdefault.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    color: white;
+}
+
+.bigbox{
+  width: 85%;
+  border-radius: 25px;
+  border: 25px solid white;
+  padding: 25px;
+  margin: 25px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 12rem
+}
+
+#genreList {
+  color: black
+}
+
+input[type=submit] {
+  margin: 20px;
+  color: white;
+  background-color: blue;
+  border: 2px;
+  cursor: pointer;
 }

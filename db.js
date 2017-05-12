@@ -1,8 +1,9 @@
 
 
 
-function allGenres (connection) {
+function allGenres (connection) 
   return connection('genres').select('name')
+
 }
 
 function getMovie (id, connection) {
@@ -13,7 +14,8 @@ function getMovie (id, connection) {
 
 function getMovieGenres (movieId, connection) {
   return connection('genres')
-  .join()
+    .join('types', 'genre_id', '=', 'genres.id')
+    .where('movie_id', movieId)
 }
 
 module.exports = {
