@@ -146,7 +146,7 @@ module.exports = {
   allMovies: allMovies,
   genreId: genreId,
   getGenreMovies: getGenreMovies,
-  randomise: randomise
+  randomise: randomise,
   searchMovies,
   addRandom,
   addTitle,
