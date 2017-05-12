@@ -10,13 +10,17 @@
 <div class="nine columms">
 <button type="button-primary" name="button"></button>
 
-
-
+<form class="randomise" action="/random" method="post">
+  <select id="genreList">
+    <option value="All genres" selected>All genres</option>
+    {{#each genres}}
+    <option value="{{name}}">{{name}}</option>
+    {{/each}}
   </select>
-
+  <input type="submit" value="Randomise"/>
+</form>
 </div>
 </div>
-
 
 
 </div>
