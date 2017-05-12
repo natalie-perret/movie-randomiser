@@ -1,5 +1,18 @@
 
 <form class="addMovie" action="/addmovie" method="post">
-  <input type="search" id="value" name="search">
+  <label>Search for a movie: <input type="text" name="search"></label>
+  <button type="submit">Add</button>
 </form>
 
+<form class="addMovie" action="/addmovie" method="post">
+  <input type="hidden" name="random" value="true">
+  <button type="submit">Add a random movie</button>
+</form>
+
+<ul>
+{{#each results}}
+<form action="/addmovie" method="post">
+<li><b>{{this.original_title}}</b> <b>{{this.release_date}}</b> <button type="submit" name="addtitle" value="{{this.id}}">Add</button>
+</form>
+{{/each}}
+</ul>

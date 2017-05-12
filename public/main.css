@@ -13,9 +13,7 @@ font-family: 'Ubuntu', sans-serif;
 }
 .allbody{
   font-family: 'Ubuntu', sans-serif;
-
-
-    background-image: url(https://i.ytimg.com/vi/JvIONJQ54Mw/maxresdefault.jpg);
+  color: black;
     background-size: cover;
     background-repeat: no-repeat;
 }
