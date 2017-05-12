@@ -17,20 +17,33 @@ function getMovieGenres (movieId, connection) {
 }
 
 
-function addRandom() {
+function addRandom(connection) {
   getLatestMovie()
     .then(findById)
     .then((result) => {
-      // when 'Add to database' function created can substitute that instead of console log
-      console.log(`${result.original_title}, ${result.release_date.slice(0,4) || "No release date )-:"}
-${result.overview || "No description )-:"}`)
+      connection('movies')
+        .insert({
+          title: result.original_title,
+          year: result.release_date.slice(0,4) || "No release date data",
+          blurb: result.overview || "No description data"
+        })
+        .then((movieid) => {
+          connection('types')
+            .insert({
+              movie_id: movieid,
+              genre_id: 15
+            })
+        })
+        .then((result) => {
+          console.log(result)
+        })
     })
     .catch(console.log)
-  }
+}
 
-function allGenres (connection) {
+
+function allGenres(connection) {
   return connection('genres').select('name')
-
 }
 
 function getLatestMovie() {
@@ -77,15 +90,29 @@ function searchMovies(keyword) {
 })
 }
 
-function addTitle(movie_id) {
+function addTitle(movie_id, connection) {
   return new Promise((resolve, reject) => {
     movieDb.movieInfo({id: movie_id}, (err, res) => {
       if (err) {
         console.log(err)
         reject(err)
       }
-      console.log(`${res.original_title}, ${res.release_date.slice(0,4)}, ${res.overview}`)
-      resolve(res)
+      connection('movies')
+        .insert({
+          title: res.original_title,
+          year: res.release_date.slice(0,4) || "No release date data",
+          blurb: res.overview || "No description data"
+        })
+        .then((movieid) => {
+          return connection('types')
+            .insert({
+              movie_id: movieid,
+              genre_id: 15
+            })
+        })
+        .then((result) => {
+          resolve(res)
+        })
     })
   })
 }
@@ -94,7 +121,7 @@ module.exports = {
   searchMovies,
   addRandom,
   addTitle,
-  allGenres: allGenres,
-  getMovie: getMovie,
-  getMovieGenres: getMovieGenres
+  allGenres,
+  getMovie,
+  getMovieGenres
 }

@@ -1,6 +1,5 @@
 var express = require('express')
 var router = express.Router()
-
 var db = require('../db')
 
 router.get('/', function (req, res) {
@@ -19,6 +18,7 @@ router.post('/addmovie', (req, res) => {
   if (req.body.random) {
     db.addRandom()
     res.render("addmovie")
+    
   } else if (req.body.search) {
     db.searchMovies(req.body.search)
       .then((page) => {
@@ -28,6 +28,7 @@ router.post('/addmovie', (req, res) => {
         res.render("addmovie", page)
       })
       .catch(console.log)
+
   } else if (req.body.addtitle) {
     db.addTitle(req.body.addtitle, req.app.get('connection'))
       .then(() => {
