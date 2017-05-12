@@ -5,9 +5,19 @@ function allGenres (connection) {
   return connection('genres').select(name)
 }
 
+function allMovies (connection) {
+  return connection('movies')
+}
+
 function getMovie (id, connection) {
   return connection('movies').select()
     .where('id', id)
+    .first()
+}
+
+function genreId (name, connection) {
+  return connection('genres').select('id')
+    .where('name', name)
     .first()
 }
 
@@ -77,6 +87,21 @@ function getMovieGenres (movieId, connection) {
     .where('movie_id', movieId)
 }
 
+
+function getGenreMovies (genreId, connection) {
+  return connection('movies')
+    .join('types', 'movie_id', '=', 'movies.id')
+    .where('genre_id', genreId)
+}
+
+function randomise(movies) {
+  return new Promise ((resolve, reject) => {
+    var size = movies.length
+    if (size == 0) reject("No movies in db of this genre")
+    var pick = Math.floor(Math.random() * size)
+    console.log(pick);
+    resolve(movies[pick])
+
 function searchMovies(keyword) {
   return new Promise((resolve, reject) => {
     movieDb.searchMovie({query: keyword}, (err, result) => {
@@ -118,6 +143,10 @@ function addTitle(movie_id, connection) {
 }
 
 module.exports = {
+  allMovies: allMovies,
+  genreId: genreId,
+  getGenreMovies: getGenreMovies,
+  randomise: randomise
   searchMovies,
   addRandom,
   addTitle,
