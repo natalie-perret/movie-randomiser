@@ -27,7 +27,7 @@ ${result.overview || "No description )-:"}`)
     })
     .catch(console.log)
 
-function allGenres (connection) 
+function allGenres (connection) {
   return connection('genres').select('name')
 
 }
