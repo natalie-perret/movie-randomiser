@@ -22,7 +22,7 @@ test('getMovie returns a single movie', function (t) {
   var expected = 'Pulp Fiction'
   return db.getMovie(7, t.context.connection)
     .then(function (result) {
-      var actual = result[6].title
+      var actual = result.title
       t.is(expected, actual)
     })
 })

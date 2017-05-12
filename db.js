@@ -2,7 +2,7 @@
 
 
 function allGenres (connection) {
-  return connection('genres').select(name)
+  return connection('genres').select('name')
 }
 
 function getMovie (id, connection) {
