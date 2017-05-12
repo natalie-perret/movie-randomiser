@@ -35,11 +35,12 @@ router.post('/random', function (req, res){
         if(genre != 'All genres'){
           db.getGenreMovies(genreId.id, req.app.get('connection'))
           .then((selectMovies) => db.randomise(selectMovies))
+          .then((finalChoice) => res.redirect(`/movie/${finalChoice.id}`))
         } else {
           db.randomise(movies)
+          .then((finalChoice) => res.redirect(`/movie/${finalChoice.id}`))
         }
       })
-      console.log(movies)
     })
 
   console.log(genre);

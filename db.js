@@ -35,7 +35,10 @@ function getGenreMovies (genreId, connection) {
 }
 
 function randomise(movies){
-  
+  var size = movies.length
+  var pick = Math.floor(Math.random() * size)
+  console.log(pick);
+  return movies[pick]
 }
 
 module.exports = {
