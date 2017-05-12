@@ -10,7 +10,7 @@ font-family: 'Raleway', sans-serif;
 }
 
 .headerbox{
-  width: 85%;
+  
   border-radius: 25px;
   border: 25px solid white;
   padding: 25px;
@@ -35,7 +35,7 @@ body{
 }
 
 .bigbox{
-  width: 85%;
+
   border-radius: 25px;
   border: 25px solid white;
   padding: 25px;

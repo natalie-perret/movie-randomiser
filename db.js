@@ -101,6 +101,8 @@ function randomise(movies) {
     var pick = Math.floor(Math.random() * size)
     console.log(pick);
     resolve(movies[pick])
+  })
+}
 
 function searchMovies(keyword) {
   return new Promise((resolve, reject) => {
