@@ -1,6 +1,19 @@
+<div class="headerbox">
+  <div class="row">
+<div class="header">
+  <div class="row">
+    <div class="twelve columns"><h1>THE UNDECIDEDS<h1></div>
+  </div>
+  <div class="row">
+     <div class="twelve columns"><h3>Don't know what to watch?<h3></div>
+  </div>
+</div><!--CLOSE header-->
+</div>
+</div><!--CLOSE HEADERBOX-->
+
 <div class="bigbox">
   <div class="row">
-    <div class="three columns">
+    <div class="row">
       <h5>
         <ol>
           <li>Choose a genre</li>
@@ -9,7 +22,7 @@
       </h5>
     </div>
 
-    <div class="nine columms">
+    <div class="row">
       <form class="randomise" action="/random" method="post">
         <select id="genreList" name="genre">
           <option value="All genres" selected>All genres</option>
@@ -20,5 +33,33 @@
         <input type="submit" value="Randomise"/>
       </form>
     </div>
-  </div>
+
+</div>
+
+
+
+</div>
+
+
+<div class="bigbox">
+<div class="row">
+  <form class="addMovie" action="/addmovie" method="post">
+    <label><h5>Search for a movie: </h5></label>
+      <input type="text" name="search" placeholder="Enter movie name">
+    <button type="submit">Search</button>
+  </form>
+
+  <form class="addMovie" action="/addmovie" method="post">
+    <input type="hidden" name="random" value="true">
+    <button type="submit">Add a random movie</button>
+  </form>
+
+  <ul>
+  {{#each results}}
+  <form action="/addmovie" method="post">
+  <li><b>{{this.original_title}}</b> <b>{{this.release_date}}</b> <button type="submit" name="addtitle" value="{{this.id}}">Add</button>
+  </form>
+  {{/each}}
+  </ul>
+</div>
 </div>
