@@ -4,24 +4,32 @@
 //
  var test = require('ava')
 //
-// var configureDatabase = require('./helpers/database-config')
-// configureDatabase(test)
+var configureDatabase = require('./helpers/database-config')
+configureDatabase(test)
 //
-// var db = require('../db')
+var db = require('../db')
 //
-// test('getUsers gets all users', function (t) {
-//   // One for each letter of the alphabet!
-//   var expected = 26
-//   return db.getUsers(t.context.connection)
-//     .then(function (result) {
-//       var actual = result.length
-//       t.is(expected, actual)
-//     })
-// })
-//
-// test('getUsers gets a single user', function (t) {
-//   var expected = 'Ambitious Aardvark'
-//   return db.getUser(99901, t.context.connection)
+test('allGenres gets all genres', function (t) {
+   var expected = 14
+   return db.allGenres(t.context.connection)
+    .then(function (result) {
+      var actual = result.length
+      t.is(expected, actual)
+    })
+})
+
+test('getMovie returns a single movie', function (t) {
+  var expected = 'Pulp Fiction'
+  return db.getMovie(7, t.context.connection)
+    .then(function (result) {
+      var actual = result.title
+      t.is(expected, actual)
+    })
+})
+
+// test('getMovieGenres returns all movies ', function (t) {
+//   var expected = ''
+//   return db.getUser(, t.context.connection)
 //     .then(function (result) {
 //       var actual = result[0].name
 //       t.is(expected, actual)

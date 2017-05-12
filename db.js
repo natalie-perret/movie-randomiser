@@ -1,9 +1,9 @@
 
 
 
-function allGenres (connection) {
-  return connection('genres')
-  .select('name')
+function allGenres (connection) 
+  return connection('genres').select('name')
+
 }
 
 function getMovie (id, connection) {
