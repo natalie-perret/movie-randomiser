@@ -21,4 +21,3 @@ module.exports = {
   getMovie: getMovie,
   getMovieGenres: getMovieGenres
 }
-
