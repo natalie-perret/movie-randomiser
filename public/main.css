@@ -50,3 +50,11 @@ h1 {
 #genreList {
   color: black
 }
+
+input[type=submit] {
+  margin: 20px;
+  color: white;
+  background-color: blue;
+  border: 2px;
+  cursor: pointer;
+}
