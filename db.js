@@ -34,11 +34,14 @@ function getGenreMovies (genreId, connection) {
     .where('genre_id', genreId)
 }
 
-function randomise(movies){
-  var size = movies.length
-  var pick = Math.floor(Math.random() * size)
-  console.log(pick);
-  return movies[pick]
+function randomise(movies) {
+  return new Promise ((resolve, reject) => {
+    var size = movies.length
+    if (size == 0) reject("No movies in db of this genre")
+    var pick = Math.floor(Math.random() * size)
+    console.log(pick);
+    resolve(movies[pick])
+  })
 }
 
 module.exports = {

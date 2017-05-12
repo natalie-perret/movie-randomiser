@@ -34,8 +34,12 @@ router.post('/random', function (req, res){
       .then((movies) => {
         if(genre != 'All genres'){
           db.getGenreMovies(genreId.id, req.app.get('connection'))
-          .then((selectMovies) => db.randomise(selectMovies))
+          .then((selectMovies) => {return db.randomise(selectMovies)})
           .then((finalChoice) => res.redirect(`/movie/${finalChoice.id}`))
+          .catch(err => {
+            console.log(err);
+            res.send(`<h1>${err}</h1><a href=/ >Go Home</a>`)
+          })
         } else {
           db.randomise(movies)
           .then((finalChoice) => res.redirect(`/movie/${finalChoice.id}`))
