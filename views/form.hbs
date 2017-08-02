@@ -1,0 +1,12 @@
+<form class="addMovie" action="/addmovie" method="post">
+  <p>Enter movie name:</p>
+  <input type="text" class="form-field" name="title" placeholder="Enter movie name"/>
+  <input type="number" class="form-field" name="year" placeholder="Enter year of movie" min="4" max="4"/>
+  <input type="text" class="form-field" name="blurb" placeholder="Enter movie blurb"/>
+  <select multiple id="multi" name="multi">
+    {{#each genres}}
+    <option value="name">{{name}}</option>
+    {{/each}}
+  </select>
+  <input type="submit" value="Add your movie!">
+</form>
